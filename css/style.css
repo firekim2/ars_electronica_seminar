@@ -1,0 +1,54 @@
+body{
+  margin: 0;
+}
+
+.lenticular{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+canvas{
+  display: none;
+}
+
+.mixing_img{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: 100%;
+  -webkit-mask-repeat-x: initial;
+  -webkit-mask-repeat-y: initial;
+}
+
+.lenticular #p{
+  background-image: url(../img/kim.png);
+  background-size:cover;
+  width: 100%;
+}
+
+.lenticular #t{
+  background-image: url(../img/jung.png);
+  background-size:cover;
+  width: 100%;
+}
+
+.text{
+ font-style: italic;
+ color: #fff;
+ margin-left: 0;
+ height: fit-content;
+ z-index:100;
+}
+
+.text h1{
+ font-size: 4em;
+}
+
+.text h2{
+  margin: 0;
+  text-align:right;
+}
