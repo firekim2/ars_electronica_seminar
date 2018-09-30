@@ -53,6 +53,27 @@ canvas{
   text-align:right;
 }
 
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
+a:link {
+  color: #fff;
+}
+
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+}
+
+a:active {
+  color: #fff;
+}
+
 @media (min-width:800px) {
   body{
     margin: 15px;
@@ -68,5 +89,15 @@ canvas{
     background-image: url(../img/jung_lands.png);
     background-size:cover;
     width: 100%;
+  }
+
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: #fff;
+    text-decoration: underline;
   }
 }
