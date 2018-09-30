@@ -52,3 +52,21 @@ canvas{
   margin: 0;
   text-align:right;
 }
+
+@media (min-width:800px) {
+  body{
+    margin: 15px;
+  }
+
+  .lenticular #p{
+    background-image: url(../img/kim_lands.png);
+    background-size:cover;
+    width: 100%;
+  }
+
+  .lenticular #t{
+    background-image: url(../img/jung_lands.png);
+    background-size:cover;
+    width: 100%;
+  }
+}
