@@ -8,6 +8,7 @@ var canvas_t = document.getElementById("canvas_t");
 var ctx_p = canvas_p.getContext("2d");
 var ctx_t = canvas_t.getContext("2d");
 var grid_width = 4;
+
 function App() {
 
     this.init = () => {
@@ -17,8 +18,6 @@ function App() {
       canvas_t.height = lenticular.offsetHeight;
   		window.onmousemove = ( event ) => {
   			var percentage = event.x / totalWidth;
-  			var color = fadeToColor(color1, color2, percentage)
-  			body.style.backgroundColor = color;
   			var segment = Math.floor( 24 * percentage );
         if ( segment > 22 ) {
             segment = 22;
@@ -28,19 +27,9 @@ function App() {
         mask_p(segment);
         mask_t(segment);
   	  }
-      if (window.DeviceOrientationEvent) {
-          window.addEventListener("deviceorientation", function () {
-              mobileTilt([event.beta, event.gamma]);
-          }, true);
-      } else if (window.DeviceMotionEvent) {
-          window.addEventListener('devicemotion', function () {
-              mobileTilt([event.acceleration.x * 2, event.acceleration.y * 2]);
-          }, true);
-      } else {
-          window.addEventListener("MozOrientation", function () {
-              mobileTilt([orientation.x * 50, orientation.y * 50]);
-          }, true);
-      }
+
+      window.addEventListener('deviceorientation', mobileTilt);
+
       window.onresize = () => {
           totalWidth = window.innerWidth;
       }
@@ -88,10 +77,8 @@ function App() {
 	    return 'rgb(' + newColor + ')';
 	}
 
-   mobileTilt = (data) => {
-        var percentage = (data[1] + 45) / 90;
-        var color = fadeToColor(color1, color2, percentage)
-        body.style.backgroundColor = color;
+   mobileTilt = (event) => {
+        var percentage = (event.gamma + 45) / 90;
         var segment = Math.floor( 24 * percentage );
         if ( segment > 22 ) {
             segment = 22;
